@@ -1,40 +1,44 @@
 # StudySift Standard Library Map
 
-StudySift intentionally avoids third-party dependencies.
+StudySift is intentionally built without third-party Python packages.
 
-The following standard-library modules provide functionality that
-would commonly be implemented using external packages.
+All functionality is implemented using Python's standard library and
+StudySift's own source modules.
 
-| Standard Library Module | Purpose in StudySift |
-|---|---|
-| argparse | Command-line interface |
-| pathlib | File and path handling |
-| json | JSON report generation |
-| csv | CSV report generation |
-| io | In-memory text streams for CSV generation |
-| re | Text pattern matching |
-| collections | Keyword frequency counting |
-| unittest | Automated testing |
+## Standard Library Modules Used
+
+| Standard Library Module | File | Purpose |
+|---|---|---|
+| `argparse` | `main.py` | Command-line interface |
+| `pathlib` | `parser.py` | File and path handling |
+| `re` | `analyzer.py` | Text processing and pattern matching |
+| `collections` | `analyzer.py` | Keyword frequency counting |
+| `json` | `generator.py` | JSON report generation |
+| `csv` | `generator.py` | CSV report generation |
+| `io` | `generator.py` | In-memory CSV output |
+| `unittest` | `tests/` | Automated testing |
+
+## Internal Modules
+
+StudySift also imports its own modules:
+
+- `parser`
+- `analyzer`
+- `scorer`
+- `generator`
+
+These are part of the StudySift source code and are not external
+dependencies.
 
 ## Dependency Manifest
 
 The project's `requirements.txt` file is intentionally empty.
 
-No third-party Python package is required.
+No third-party Python package is required to run StudySift.
 
-## Package Replacement Philosophy
+## Dependency Verification
 
-Instead of installing external packages for basic document processing,
-StudySift uses functionality already included with Python.
+The repository includes:
 
-Examples:
-
-- CLI framework → `argparse`
-- JSON handling → `json`
-- CSV generation → `csv`
-- Text processing → `re`
-- Frequency counting → `collections`
-- Testing framework → `unittest`
-- File handling → `pathlib`
-
-This keeps the executable dependency surface limited to Python itself.
+```text
+proof/dependency_check.py

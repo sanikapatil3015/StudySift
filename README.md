@@ -107,6 +107,46 @@ Run all tests:
 
 StudySift does not require third-party packages to build or run.
 
+## Dependency Proof
+
+StudySift includes a dependency verification script:
+
+    python proof/dependency_check.py
+
+The verification checks that:
+
+- `requirements.txt` is empty
+- Source files contain no third-party imports
+
+A successful verification produces:
+
+    PASS: requirements.txt is empty.
+    PASS: No external third-party imports found.
+
+    Dependency proof successful.
+
+## Demo
+
+The recommended demonstration flow is:
+
+1. Show the project structure.
+2. Show the empty `requirements.txt`.
+3. Run the dependency proof.
+4. Run StudySift on a sample document.
+5. Demonstrate keyword analysis.
+6. Demonstrate text search.
+7. Generate a JSON report.
+8. Generate a CSV report.
+9. Run the automated tests.
+
+## Hackathon
+
+Built for the Zero Dependency Hackathon 2026.
+
+StudySift demonstrates how a useful document-analysis tool can be
+built using only Python's standard library, without third-party
+package dependencies.
+
 ## License
 
 This project is created for the Zero Dependency Hackathon 2026.
