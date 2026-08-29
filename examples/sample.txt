@@ -1,0 +1,15 @@
+Data Structures and Algorithms
+
+Data structures are fundamental concepts in computer science.
+They help us organize and manage data efficiently.
+
+Arrays store elements in contiguous memory locations.
+Linked lists store elements using nodes and pointers.
+Stacks follow the Last In First Out principle.
+Queues follow the First In First Out principle.
+
+Algorithms provide step-by-step procedures for solving problems.
+Searching and sorting are important algorithmic techniques.
+
+Understanding data structures and algorithms helps students
+write efficient and reliable programs.
