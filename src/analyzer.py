@@ -140,3 +140,29 @@ def average_word_length(text):
         total_length / len(words),
         2
     )
+def search_text(text, search_term):
+    """
+    Search for a word or phrase in the document.
+
+    Returns:
+        A list containing line numbers and matching lines.
+    """
+
+    results = []
+
+    search_term = search_term.lower()
+
+    lines = text.splitlines()
+
+    for line_number, line in enumerate(lines, start=1):
+
+        if search_term in line.lower():
+
+            results.append(
+                {
+                    "line_number": line_number,
+                    "line": line.strip()
+                }
+            )
+
+    return results

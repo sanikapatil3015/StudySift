@@ -10,6 +10,7 @@ from analyzer import (
     count_paragraphs,
     get_keyword_frequency,
     average_word_length,
+    search_text,
 )
 
 from scorer import calculate_score
@@ -88,9 +89,7 @@ def display_report(file_path, text):
 
     print(f"Paragraphs:        {paragraphs}")
 
-    print(
-        f"Average word size: {average_length}"
-    )
+    print(f"Average word size: {average_length}")
 
     print()
 
@@ -141,6 +140,15 @@ def main():
     )
 
     # --------------------------------
+    # Add search argument
+    # --------------------------------
+
+    parser.add_argument(
+        "--search",
+        help="Search for a word or phrase in the document"
+    )
+
+    # --------------------------------
     # Read command-line arguments
     # --------------------------------
 
@@ -154,10 +162,59 @@ def main():
 
         text = read_file(args.file)
 
-        display_report(
-            args.file,
-            text
-        )
+        if args.search:
+
+            results = search_text(
+                text,
+                args.search
+            )
+
+            print()
+
+            print("=" * 50)
+
+            print("              STUDYSIFT")
+
+            print("              Search Results")
+
+            print("=" * 50)
+
+            print()
+
+            print(
+                f"Search term: {args.search}"
+            )
+
+            print(
+                f"Found {len(results)} occurrence(s)"
+            )
+
+            print()
+
+            if results:
+
+                for result in results:
+
+                    print(
+                        f"Line {result['line_number']}:"
+                    )
+
+                    print(
+                        result["line"]
+                    )
+
+                    print()
+
+            else:
+
+                print("No matches found.")
+
+        else:
+
+            display_report(
+                args.file,
+                text
+            )
 
     except Exception as error:
 
